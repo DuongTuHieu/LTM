@@ -14,7 +14,6 @@ public class AppCalculatorServer {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		char kt;
 		try {
 			ServerSocket svSocket = new ServerSocket(7777);
 			System.out.println("Server is connecting...");
