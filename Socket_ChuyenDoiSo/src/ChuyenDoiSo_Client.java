@@ -30,7 +30,7 @@ public class ChuyenDoiSo_Client {
 				buffW.flush();
 				String chuoiNhan = buffR.readLine();
 				System.out.print("Server: "+ chuoiNhan);
-				if(chuoiGui.equals("10\n")) break;
+				if(chuoiGui.equals("10")) break;
 			}
 			socket.close();
 			
