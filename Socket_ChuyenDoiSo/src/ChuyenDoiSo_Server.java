@@ -34,10 +34,7 @@ public class ChuyenDoiSo_Server extends Thread {
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader buffR = new BufferedReader(inReader);
 				
-				//Gửi hello
-				String chuoiHello_Gui = "Hello bạn muốn trả về số  mấy nào ? ";
-				buffW.write(chuoiHello_Gui+ "\n" );
-				buffW.flush();
+			
 				//Nhận về sô và trả lời
 				String chuoiSo0_Nhan = buffR.readLine();
 				String chuoiTraLoi0 = "Zero ";
