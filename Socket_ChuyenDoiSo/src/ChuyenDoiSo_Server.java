@@ -34,65 +34,56 @@ public class ChuyenDoiSo_Server extends Thread {
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader buffR = new BufferedReader(inReader);
 				
-			
-				//Nhận về sô và trả lời
-				String chuoiSo0_Nhan = buffR.readLine();
-				String chuoiTraLoi0 = "Zero ";
-				buffW.write(chuoiTraLoi0+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo01_Nhan = buffR.readLine();
-				String chuoiTraLoi01 = "One ";
-				buffW.write(chuoiTraLoi01+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo02_Nhan = buffR.readLine();
-				String chuoiTraLoi02 = "Two ";
-				buffW.write(chuoiTraLoi02+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo03_Nhan = buffR.readLine();
-				String chuoiTraLoi03 = "Three ";
-				buffW.write(chuoiTraLoi03+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo04_Nhan = buffR.readLine();
-				String chuoiTraLoi04 = "For ";
-				buffW.write(chuoiTraLoi04+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo05_Nhan = buffR.readLine();
-				String chuoiTraLoi05 = "Five ";
-				buffW.write(chuoiTraLoi05+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo06_Nhan = buffR.readLine();
-				String chuoiTraLoi06 = "Six ";
-				buffW.write(chuoiTraLoi06+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo07_Nhan = buffR.readLine();
-				String chuoiTraLoi07 = "Seven ";
-				buffW.write(chuoiTraLoi07+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo08_Nhan = buffR.readLine();
-				String chuoiTraLoi08 = "Eight ";
-				buffW.write(chuoiTraLoi08+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo09_Nhan = buffR.readLine();
-				String chuoiTraLoi09 = "Nine ";
-				buffW.write(chuoiTraLoi09+ "\n" );
-				buffW.flush();
-				//Nhận về sô và trả lời
-				String chuoiSo10_Nhan = buffR.readLine();
-				String chuoiTraLoi10 = "Ten ";
-				buffW.write(chuoiTraLoi10+ "\n" );
-				buffW.flush();
-		
+			while(true){
+				String chuoiNhan=buffR.readLine();
+				System.out.print(chuoiNhan);
 				
-				buffW.flush();
+				if(chuoiNhan.equals("0")) {
+					String chuoiGui= "zero";
+					buffW.write(chuoiGui+"");
+					buffW.flush();
+				}else if(chuoiNhan.equals("1")) {
+					String chuoiGui= "one";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("2")) {
+					String chuoiGui= "two";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("3")) {
+					String chuoiGui= "three";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("4")) {
+					String chuoiGui= "four";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("5")) {
+					String chuoiGui= "five";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("6")) {
+					String chuoiGui= "six";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("7")) {
+					String chuoiGui= "seven";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("8")) {
+					String chuoiGui= "eight";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("9")) {
+					String chuoiGui= "night";
+					buffW.write(chuoiGui+"\n");
+					buffW.flush();
+				}else if(chuoiNhan.equals("10")) {
+					break;
+				}
+				
+			}
+			socketClient.close();
 				}
 		catch (Exception e) {
 			// TODO: handle exception
