@@ -45,8 +45,36 @@ public class LuongLamViec_DocFile extends Thread{
 			InputStream in = socketClient.getInputStream();
 			InputStreamReader inReader = new InputStreamReader(in);
 			BufferedReader buffR = new BufferedReader(inReader);
+			while(true) {
+				String chuoiNhan=buffR.readLine();
+				System.out.print("\n"+chuoiNhan);
+				
+				if(chuoiNhan.equals("1")) {
+					GuiFile("D:\\1.txt");
+				}
+				if(chuoiNhan.equals("2")) {
+					GuiFile("D:\\2.txt");
+				}if(chuoiNhan.equals("3")) {
+					GuiFile("D:\\3.txt");
+				}if(chuoiNhan.equals("4")) {
+					GuiFile("D:\\4.txt");
+				}if(chuoiNhan.equals("5")) {
+					GuiFile("D:\\5.txt");
+				}if(chuoiNhan.equals("6")) {
+					GuiFile("D:\\6.txt");
+				}if(chuoiNhan.equals("7")) {
+					GuiFile("D:\\7.txt");
+				}if(chuoiNhan.equals("8")) {
+					GuiFile("D:\\8.txt");
+				}if(chuoiNhan.equals("9")) {
+					GuiFile("D:\\9.txt");
+				}if(chuoiNhan.equals("10")) {
+					GuiFile("D:\\10.txt");
+				}
+				socketClient.close();
+			}
 		
-		socketClient.close();
+	
 	}
 catch (Exception e) {
 // TODO: handle exception
