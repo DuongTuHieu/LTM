@@ -98,10 +98,10 @@ public class LuongLamViec_DocFile extends Thread{
 					buffW.write(chuoiNhan+"\n");
 					buffW.flush();
 				}
-				socketClient.close();
+			
 			}
 		
-	
+		
 	}
 catch (Exception e) {
 // TODO: handle exception
