@@ -92,8 +92,6 @@ public class LuongLamViec_DocFile extends Thread{
 				else if(chuoiNhan.equals("8")) {
 					GuiFile("D:\\8.txt");
 					buffW.write("\n");
-
-				
 					buffW.flush();
 				}
 				else if(chuoiNhan.equals("9")) {
