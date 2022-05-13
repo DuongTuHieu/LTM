@@ -2,6 +2,7 @@ package Hieu61133644;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,40 +21,7 @@ public class LuongLamViec_xuLyFile extends Thread{
 			this.socketClient = socketClient;
 			this.id = id;
 	}
-		void TaoFile(String tenFile) throws IOException{
-			
-			FileReader fr = new FileReader(tenFile);
-			BufferedReader buffRead = new BufferedReader(fr);
-			OutputStream osToClient = socketClient.getOutputStream();	
-			OutputStreamWriter write2Client = new OutputStreamWriter(osToClient);
-			BufferedWriter buffW = new BufferedWriter(write2Client);
 		
-			fr.close();
-			
-		}
-		void TaiFile(String tenFile) throws IOException{
-			
-			FileReader fr = new FileReader(tenFile);
-			BufferedReader buffRead = new BufferedReader(fr);
-			OutputStream osToClient = socketClient.getOutputStream();	
-			OutputStreamWriter write2Client = new OutputStreamWriter(osToClient);
-			BufferedWriter buffW = new BufferedWriter(write2Client);
-			String line;
-			
-			fr.close();
-			
-		}
-		void XoaFile(String tenFile) throws IOException{
-			
-			FileReader fr = new FileReader(tenFile);
-			BufferedReader buffRead = new BufferedReader(fr);
-			OutputStream osToClient = socketClient.getOutputStream();	
-			OutputStreamWriter write2Client = new OutputStreamWriter(osToClient);
-			BufferedWriter buffW = new BufferedWriter(write2Client);
-		
-			fr.close();
-			
-		}
 		@Override
 		public void run() {
 			try {
@@ -66,14 +34,28 @@ public class LuongLamViec_xuLyFile extends Thread{
 				InputStream in = socketClient.getInputStream();
 				InputStreamReader inReader = new InputStreamReader(in);
 				BufferedReader buffR = new BufferedReader(inReader);
-				while(true) {
-					String chuoiNhan=buffR.readLine();
-					System.out.print("\n"+chuoiNhan);
-					
 				
-				}
+			while(true) {
+					String chuoiNhan=buffR.readLine();
+					String chuoiNhanrong=buffR.readLine();
+					String chuoiNhanyc=buffR.readLine();
+				
+					if(chuoiNhan.equals("c")) {
+					 File file = new File("D://"+ chuoiNhanyc); 	
+			            if (file.createNewFile())
+			                System.out.print("\nĐã tạo file thành công!");
+			            else
+			                System.out.print("Tạo file thất bại");
+					}
+					if(chuoiNhan.equals("d")) {
+						 File file = new File("D://"+ chuoiNhanyc); 	
+				            if (file.delete())
+				                System.out.print("\nĐã xóa file thành công!");
+				            else
+				                System.out.print("Đã xóa file thất bại");
+						}
 			
-			
+			}
 		}
 	catch (Exception e) {
 	// TODO: handle exception
