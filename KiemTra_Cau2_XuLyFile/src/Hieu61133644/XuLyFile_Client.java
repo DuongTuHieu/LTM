@@ -12,56 +12,31 @@ import java.util.Scanner;
 public class XuLyFile_Client {
 	public static void main(String[] args) {
 		try {
+			Socket socketclient = new Socket("localhost",9999);
+			System.out.print("Kết nối thành công");
 			
-			Socket socket = new Socket("localhost",9999);
-			System.out.print("Conected!");
-			InputStream in = socket.getInputStream();
-			InputStreamReader inReader = new InputStreamReader(in);
-			BufferedReader buffR = new BufferedReader(inReader);
-
-			OutputStream osToClient = socket.getOutputStream();	
-			OutputStreamWriter write2Client = new OutputStreamWriter(osToClient);
-			BufferedWriter buffW = new BufferedWriter(write2Client);
-
-			Scanner banPhim = new Scanner(System.in);
-		while(true) {
-				System.out.print("\nClient(Create/Delete/Get + tenFile): ");
-				String chuoiGui = banPhim.nextLine();
-				 char character = chuoiGui.charAt(0);
-				 buffW.write(character+"\n");
-				switch (character) {
-                case 'c':
-                	String[] split = chuoiGui.split("create ");
-   				 	for (String item : split) {
-   					buffW.write(item+"\n");
-   				 	buffW.flush();
-   				 }
-               
-                case 'd':
-                	String[] splits = chuoiGui.split("delete ");
-   				 	for (String item : splits) {
-   					buffW.write(item+"\n");
-   				 	buffW.flush();
-   				 	}
-          
-                case 'g':
-                	String[] splitss = chuoiGui.split("get ");
-   				 	for (String item : splitss) {
-   					buffW.write(item+"\n");
-   				 	buffW.flush();
-   				 	}
-                 
-           
-				}
-				 
+			OutputStream osToClient = socketclient.getOutputStream();
+			OutputStreamWriter W2client = new OutputStreamWriter(osToClient);
+			BufferedWriter buffW = new BufferedWriter(W2client);
+			
+			InputStream in = socketclient.getInputStream();
+			InputStreamReader R2client = new InputStreamReader(in);
+			BufferedReader buffR = new BufferedReader(R2client);
+			
+			Scanner bp = new Scanner(System.in);
+			while(true) {
+				System.out.print("\nClient: ");
+				String chuoiGui = bp.nextLine();
+				buffW.write(chuoiGui+"\n");
+				buffW.flush();
+				
 				String chuoiNhan = buffR.readLine();
 				System.out.print("Server: "+ chuoiNhan);
-				
-			
-			}	
-		}
-		catch(Exception e) {
+				if(chuoiGui.contains("end")) break;
+			}
+		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
+
 	}
 }
